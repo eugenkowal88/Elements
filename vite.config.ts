@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  base: '/Elements/',
   plugins: [
     react(),
     tailwindcss(),
@@ -14,7 +15,7 @@ export default defineConfig({
         name: 'Periodic Table of Elements',
         short_name: 'Periodic Table',
         description: 'Interactive Periodic Table of Elements - works offline',
-        start_url: '/',
+        start_url: '/Elements/',
         display: 'standalone',
         background_color: '#f9fafb',
         theme_color: '#1f2937',
