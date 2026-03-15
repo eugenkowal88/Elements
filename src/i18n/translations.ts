@@ -1,0 +1,298 @@
+export type Language = 'en' | 'uk' | 'pl';
+
+export interface Translations {
+  title: string;
+  searchPlaceholder: string;
+  clearSearch: string;
+  toggleDarkMode: string;
+  close: string;
+  element: string;
+  learnMore: string;
+  // Detail sections
+  basicProperties: string;
+  thermal: string;
+  electronic: string;
+  discovery: string;
+  summary: string;
+  // Detail labels
+  atomicMass: string;
+  phase: string;
+  density: string;
+  block: string;
+  period: string;
+  group: string;
+  appearance: string;
+  meltingPoint: string;
+  boilingPoint: string;
+  molarHeat: string;
+  electronConfiguration: string;
+  electronegativity: string;
+  electronAffinity: string;
+  shells: string;
+  discoveredBy: string;
+  namedBy: string;
+  // PWA
+  offlineReady: string;
+  updateAvailable: string;
+  reload: string;
+  // Categories
+  categories: Record<string, string>;
+  // Element names (keyed by English name)
+  elementNames: Record<string, string>;
+  // Phase names
+  phases: Record<string, string>;
+}
+
+export const translations: Record<Language, Translations> = {
+  en: {
+    title: "Periodic Table",
+    searchPlaceholder: "Search by name, symbol, or number...",
+    clearSearch: "Clear search",
+    toggleDarkMode: "Toggle dark mode",
+    close: "Close",
+    element: "Element",
+    learnMore: "Learn more on Wikipedia",
+    basicProperties: "Basic Properties",
+    thermal: "Thermal",
+    electronic: "Electronic",
+    discovery: "Discovery",
+    summary: "Summary",
+    atomicMass: "Atomic Mass",
+    phase: "Phase",
+    density: "Density",
+    block: "Block",
+    period: "Period",
+    group: "Group",
+    appearance: "Appearance",
+    meltingPoint: "Melting Point",
+    boilingPoint: "Boiling Point",
+    molarHeat: "Molar Heat",
+    electronConfiguration: "Electron Configuration",
+    electronegativity: "Electronegativity",
+    electronAffinity: "Electron Affinity",
+    shells: "Shells",
+    discoveredBy: "Discovered By",
+    namedBy: "Named By",
+    offlineReady: "App ready to work offline",
+    updateAvailable: "New content available, click reload to update.",
+    reload: "Reload",
+    categories: {
+      "alkali metal": "Alkali Metal",
+      "alkaline earth metal": "Alkaline Earth Metal",
+      "transition metal": "Transition Metal",
+      "post-transition metal": "Post-transition Metal",
+      "metalloid": "Metalloid",
+      "diatomic nonmetal": "Diatomic Nonmetal",
+      "polyatomic nonmetal": "Polyatomic Nonmetal",
+      "noble gas": "Noble Gas",
+      "lanthanide": "Lanthanide",
+      "actinide": "Actinide",
+      "unknown, probably transition metal": "Unknown (Trans. Metal)",
+      "unknown, probably post-transition metal": "Unknown (Post-trans.)",
+      "unknown, probably metalloid": "Unknown (Metalloid)",
+      "unknown, predicted to be noble gas": "Unknown (Noble Gas)",
+    },
+    elementNames: {
+      "Hydrogen": "Hydrogen", "Helium": "Helium", "Lithium": "Lithium", "Beryllium": "Beryllium",
+      "Boron": "Boron", "Carbon": "Carbon", "Nitrogen": "Nitrogen", "Oxygen": "Oxygen",
+      "Fluorine": "Fluorine", "Neon": "Neon", "Sodium": "Sodium", "Magnesium": "Magnesium",
+      "Aluminium": "Aluminium", "Silicon": "Silicon", "Phosphorus": "Phosphorus", "Sulfur": "Sulfur",
+      "Chlorine": "Chlorine", "Argon": "Argon", "Potassium": "Potassium", "Calcium": "Calcium",
+      "Scandium": "Scandium", "Titanium": "Titanium", "Vanadium": "Vanadium", "Chromium": "Chromium",
+      "Manganese": "Manganese", "Iron": "Iron", "Cobalt": "Cobalt", "Nickel": "Nickel",
+      "Copper": "Copper", "Zinc": "Zinc", "Gallium": "Gallium", "Germanium": "Germanium",
+      "Arsenic": "Arsenic", "Selenium": "Selenium", "Bromine": "Bromine", "Krypton": "Krypton",
+      "Rubidium": "Rubidium", "Strontium": "Strontium", "Yttrium": "Yttrium", "Zirconium": "Zirconium",
+      "Niobium": "Niobium", "Molybdenum": "Molybdenum", "Technetium": "Technetium", "Ruthenium": "Ruthenium",
+      "Rhodium": "Rhodium", "Palladium": "Palladium", "Silver": "Silver", "Cadmium": "Cadmium",
+      "Indium": "Indium", "Tin": "Tin", "Antimony": "Antimony", "Tellurium": "Tellurium",
+      "Iodine": "Iodine", "Xenon": "Xenon", "Cesium": "Cesium", "Barium": "Barium",
+      "Lanthanum": "Lanthanum", "Cerium": "Cerium", "Praseodymium": "Praseodymium", "Neodymium": "Neodymium",
+      "Promethium": "Promethium", "Samarium": "Samarium", "Europium": "Europium", "Gadolinium": "Gadolinium",
+      "Terbium": "Terbium", "Dysprosium": "Dysprosium", "Holmium": "Holmium", "Erbium": "Erbium",
+      "Thulium": "Thulium", "Ytterbium": "Ytterbium", "Lutetium": "Lutetium", "Hafnium": "Hafnium",
+      "Tantalum": "Tantalum", "Tungsten": "Tungsten", "Rhenium": "Rhenium", "Osmium": "Osmium",
+      "Iridium": "Iridium", "Platinum": "Platinum", "Gold": "Gold", "Mercury": "Mercury",
+      "Thallium": "Thallium", "Lead": "Lead", "Bismuth": "Bismuth", "Polonium": "Polonium",
+      "Astatine": "Astatine", "Radon": "Radon", "Francium": "Francium", "Radium": "Radium",
+      "Actinium": "Actinium", "Thorium": "Thorium", "Protactinium": "Protactinium", "Uranium": "Uranium",
+      "Neptunium": "Neptunium", "Plutonium": "Plutonium", "Americium": "Americium", "Curium": "Curium",
+      "Berkelium": "Berkelium", "Californium": "Californium", "Einsteinium": "Einsteinium", "Fermium": "Fermium",
+      "Mendelevium": "Mendelevium", "Nobelium": "Nobelium", "Lawrencium": "Lawrencium",
+      "Rutherfordium": "Rutherfordium", "Dubnium": "Dubnium", "Seaborgium": "Seaborgium",
+      "Bohrium": "Bohrium", "Hassium": "Hassium", "Meitnerium": "Meitnerium", "Darmstadtium": "Darmstadtium",
+      "Roentgenium": "Roentgenium", "Copernicium": "Copernicium", "Nihonium": "Nihonium",
+      "Flerovium": "Flerovium", "Moscovium": "Moscovium", "Livermorium": "Livermorium",
+      "Tennessine": "Tennessine", "Oganesson": "Oganesson",
+    },
+    phases: { "Solid": "Solid", "Liquid": "Liquid", "Gas": "Gas" },
+  },
+
+  uk: {
+    title: "Періодична таблиця",
+    searchPlaceholder: "Пошук за назвою, символом або номером...",
+    clearSearch: "Очистити пошук",
+    toggleDarkMode: "Перемкнути темну тему",
+    close: "Закрити",
+    element: "Елемент",
+    learnMore: "Дізнатися більше на Вікіпедії",
+    basicProperties: "Основні властивості",
+    thermal: "Термічні",
+    electronic: "Електронні",
+    discovery: "Відкриття",
+    summary: "Опис",
+    atomicMass: "Атомна маса",
+    phase: "Фаза",
+    density: "Густина",
+    block: "Блок",
+    period: "Період",
+    group: "Група",
+    appearance: "Зовнішній вигляд",
+    meltingPoint: "Температура плавлення",
+    boilingPoint: "Температура кипіння",
+    molarHeat: "Молярна теплоємність",
+    electronConfiguration: "Електронна конфігурація",
+    electronegativity: "Електронегативність",
+    electronAffinity: "Спорідненість до електрона",
+    shells: "Оболонки",
+    discoveredBy: "Відкрив",
+    namedBy: "Названий",
+    offlineReady: "Додаток готовий до роботи офлайн",
+    updateAvailable: "Доступне нове оновлення, натисніть для оновлення.",
+    reload: "Оновити",
+    categories: {
+      "alkali metal": "Лужний метал",
+      "alkaline earth metal": "Лужноземельний метал",
+      "transition metal": "Перехідний метал",
+      "post-transition metal": "Постперехідний метал",
+      "metalloid": "Металоїд",
+      "diatomic nonmetal": "Двоатомний неметал",
+      "polyatomic nonmetal": "Багатоатомний неметал",
+      "noble gas": "Інертний газ",
+      "lanthanide": "Лантаноїд",
+      "actinide": "Актиноїд",
+      "unknown, probably transition metal": "Невідомий (перех. метал)",
+      "unknown, probably post-transition metal": "Невідомий (постперех.)",
+      "unknown, probably metalloid": "Невідомий (металоїд)",
+      "unknown, predicted to be noble gas": "Невідомий (інертний газ)",
+    },
+    elementNames: {
+      "Hydrogen": "Гідроген", "Helium": "Гелій", "Lithium": "Літій", "Beryllium": "Берилій",
+      "Boron": "Бор", "Carbon": "Карбон", "Nitrogen": "Нітроген", "Oxygen": "Оксиген",
+      "Fluorine": "Флуор", "Neon": "Неон", "Sodium": "Натрій", "Magnesium": "Магній",
+      "Aluminium": "Алюміній", "Silicon": "Силіцій", "Phosphorus": "Фосфор", "Sulfur": "Сульфур",
+      "Chlorine": "Хлор", "Argon": "Аргон", "Potassium": "Калій", "Calcium": "Кальцій",
+      "Scandium": "Скандій", "Titanium": "Титан", "Vanadium": "Ванадій", "Chromium": "Хром",
+      "Manganese": "Манган", "Iron": "Ферум", "Cobalt": "Кобальт", "Nickel": "Нікель",
+      "Copper": "Купрум", "Zinc": "Цинк", "Gallium": "Галій", "Germanium": "Германій",
+      "Arsenic": "Арсен", "Selenium": "Селен", "Bromine": "Бром", "Krypton": "Криптон",
+      "Rubidium": "Рубідій", "Strontium": "Стронцій", "Yttrium": "Ітрій", "Zirconium": "Цирконій",
+      "Niobium": "Ніобій", "Molybdenum": "Молібден", "Technetium": "Технецій", "Ruthenium": "Рутеній",
+      "Rhodium": "Родій", "Palladium": "Паладій", "Silver": "Аргентум", "Cadmium": "Кадмій",
+      "Indium": "Індій", "Tin": "Станум", "Antimony": "Стибій", "Tellurium": "Телур",
+      "Iodine": "Йод", "Xenon": "Ксенон", "Cesium": "Цезій", "Barium": "Барій",
+      "Lanthanum": "Лантан", "Cerium": "Церій", "Praseodymium": "Празеодим", "Neodymium": "Неодим",
+      "Promethium": "Прометій", "Samarium": "Самарій", "Europium": "Європій", "Gadolinium": "Гадоліній",
+      "Terbium": "Тербій", "Dysprosium": "Диспрозій", "Holmium": "Гольмій", "Erbium": "Ербій",
+      "Thulium": "Тулій", "Ytterbium": "Ітербій", "Lutetium": "Лютецій", "Hafnium": "Гафній",
+      "Tantalum": "Тантал", "Tungsten": "Вольфрам", "Rhenium": "Реній", "Osmium": "Осмій",
+      "Iridium": "Іридій", "Platinum": "Платина", "Gold": "Аурум", "Mercury": "Меркурій",
+      "Thallium": "Талій", "Lead": "Плюмбум", "Bismuth": "Бісмут", "Polonium": "Полоній",
+      "Astatine": "Астат", "Radon": "Радон", "Francium": "Францій", "Radium": "Радій",
+      "Actinium": "Актиній", "Thorium": "Торій", "Protactinium": "Протактиній", "Uranium": "Уран",
+      "Neptunium": "Нептуній", "Plutonium": "Плутоній", "Americium": "Америцій", "Curium": "Кюрій",
+      "Berkelium": "Берклій", "Californium": "Каліфорній", "Einsteinium": "Ейнштейній", "Fermium": "Фермій",
+      "Mendelevium": "Менделєвій", "Nobelium": "Нобелій", "Lawrencium": "Лоуренсій",
+      "Rutherfordium": "Резерфордій", "Dubnium": "Дубній", "Seaborgium": "Сіборгій",
+      "Bohrium": "Борій", "Hassium": "Гасій", "Meitnerium": "Мейтнерій", "Darmstadtium": "Дармштадтій",
+      "Roentgenium": "Рентгеній", "Copernicium": "Коперніцій", "Nihonium": "Ніхоній",
+      "Flerovium": "Флеровій", "Moscovium": "Московій", "Livermorium": "Ліверморій",
+      "Tennessine": "Теннессін", "Oganesson": "Оганесон",
+    },
+    phases: { "Solid": "Тверда", "Liquid": "Рідка", "Gas": "Газ" },
+  },
+
+  pl: {
+    title: "Układ okresowy",
+    searchPlaceholder: "Szukaj po nazwie, symbolu lub numerze...",
+    clearSearch: "Wyczyść wyszukiwanie",
+    toggleDarkMode: "Przełącz tryb ciemny",
+    close: "Zamknij",
+    element: "Pierwiastek",
+    learnMore: "Dowiedz się więcej na Wikipedii",
+    basicProperties: "Właściwości podstawowe",
+    thermal: "Termiczne",
+    electronic: "Elektronowe",
+    discovery: "Odkrycie",
+    summary: "Opis",
+    atomicMass: "Masa atomowa",
+    phase: "Stan skupienia",
+    density: "Gęstość",
+    block: "Blok",
+    period: "Okres",
+    group: "Grupa",
+    appearance: "Wygląd",
+    meltingPoint: "Temperatura topnienia",
+    boilingPoint: "Temperatura wrzenia",
+    molarHeat: "Ciepło molowe",
+    electronConfiguration: "Konfiguracja elektronowa",
+    electronegativity: "Elektroujemność",
+    electronAffinity: "Powinowactwo elektronowe",
+    shells: "Powłoki",
+    discoveredBy: "Odkryty przez",
+    namedBy: "Nazwany przez",
+    offlineReady: "Aplikacja gotowa do pracy offline",
+    updateAvailable: "Dostępna nowa wersja, kliknij aby zaktualizować.",
+    reload: "Odśwież",
+    categories: {
+      "alkali metal": "Metal alkaliczny",
+      "alkaline earth metal": "Metal ziem alkalicznych",
+      "transition metal": "Metal przejściowy",
+      "post-transition metal": "Metal po-przejściowy",
+      "metalloid": "Półmetal",
+      "diatomic nonmetal": "Niemetal dwuatomowy",
+      "polyatomic nonmetal": "Niemetal wieloatomowy",
+      "noble gas": "Gaz szlachetny",
+      "lanthanide": "Lantanowiec",
+      "actinide": "Aktynowiec",
+      "unknown, probably transition metal": "Nieznany (metal przejśc.)",
+      "unknown, probably post-transition metal": "Nieznany (po-przejśc.)",
+      "unknown, probably metalloid": "Nieznany (półmetal)",
+      "unknown, predicted to be noble gas": "Nieznany (gaz szlachetny)",
+    },
+    elementNames: {
+      "Hydrogen": "Wodór", "Helium": "Hel", "Lithium": "Lit", "Beryllium": "Beryl",
+      "Boron": "Bor", "Carbon": "Węgiel", "Nitrogen": "Azot", "Oxygen": "Tlen",
+      "Fluorine": "Fluor", "Neon": "Neon", "Sodium": "Sód", "Magnesium": "Magnez",
+      "Aluminium": "Glin", "Silicon": "Krzem", "Phosphorus": "Fosfor", "Sulfur": "Siarka",
+      "Chlorine": "Chlor", "Argon": "Argon", "Potassium": "Potas", "Calcium": "Wapń",
+      "Scandium": "Skand", "Titanium": "Tytan", "Vanadium": "Wanad", "Chromium": "Chrom",
+      "Manganese": "Mangan", "Iron": "Żelazo", "Cobalt": "Kobalt", "Nickel": "Nikiel",
+      "Copper": "Miedź", "Zinc": "Cynk", "Gallium": "Gal", "Germanium": "German",
+      "Arsenic": "Arsen", "Selenium": "Selen", "Bromine": "Brom", "Krypton": "Krypton",
+      "Rubidium": "Rubid", "Strontium": "Stront", "Yttrium": "Itr", "Zirconium": "Cyrkon",
+      "Niobium": "Niob", "Molybdenum": "Molibden", "Technetium": "Technet", "Ruthenium": "Ruten",
+      "Rhodium": "Rod", "Palladium": "Pallad", "Silver": "Srebro", "Cadmium": "Kadm",
+      "Indium": "Ind", "Tin": "Cyna", "Antimony": "Antymon", "Tellurium": "Tellur",
+      "Iodine": "Jod", "Xenon": "Ksenon", "Cesium": "Cez", "Barium": "Bar",
+      "Lanthanum": "Lantan", "Cerium": "Cer", "Praseodymium": "Prazeodym", "Neodymium": "Neodym",
+      "Promethium": "Promet", "Samarium": "Samar", "Europium": "Europ", "Gadolinium": "Gadolin",
+      "Terbium": "Terb", "Dysprosium": "Dysproz", "Holmium": "Holm", "Erbium": "Erb",
+      "Thulium": "Tul", "Ytterbium": "Iterb", "Lutetium": "Lutet", "Hafnium": "Hafn",
+      "Tantalum": "Tantal", "Tungsten": "Wolfram", "Rhenium": "Ren", "Osmium": "Osm",
+      "Iridium": "Iryd", "Platinum": "Platyna", "Gold": "Złoto", "Mercury": "Rtęć",
+      "Thallium": "Tal", "Lead": "Ołów", "Bismuth": "Bizmut", "Polonium": "Polon",
+      "Astatine": "Astat", "Radon": "Radon", "Francium": "Frans", "Radium": "Rad",
+      "Actinium": "Aktyn", "Thorium": "Tor", "Protactinium": "Protaktyn", "Uranium": "Uran",
+      "Neptunium": "Neptun", "Plutonium": "Pluton", "Americium": "Ameryk", "Curium": "Kiur",
+      "Berkelium": "Berkel", "Californium": "Kaliforn", "Einsteinium": "Einstein", "Fermium": "Ferm",
+      "Mendelevium": "Mendelew", "Nobelium": "Nobel", "Lawrencium": "Lorens",
+      "Rutherfordium": "Rutherford", "Dubnium": "Dubn", "Seaborgium": "Seaborg",
+      "Bohrium": "Bohr", "Hassium": "Has", "Meitnerium": "Meitner", "Darmstadtium": "Darmsztadt",
+      "Roentgenium": "Roentgen", "Copernicium": "Kopernik", "Nihonium": "Nihon",
+      "Flerovium": "Flerow", "Moscovium": "Moskow", "Livermorium": "Liwermor",
+      "Tennessine": "Tenesyn", "Oganesson": "Oganeson",
+    },
+    phases: { "Solid": "Ciało stałe", "Liquid": "Ciecz", "Gas": "Gaz" },
+  },
+};

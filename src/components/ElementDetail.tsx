@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import type { Element } from '../types/element';
 import { getCategoryStyle, formatAtomicMass } from '../utils/elementHelpers';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface Props {
   element: Element;
@@ -20,6 +21,10 @@ function DetailRow({ label, value }: { label: string; value: string | number | n
 export function ElementDetail({ element, onClose }: Props) {
   const panelRef = useRef<HTMLDivElement>(null);
   const cat = getCategoryStyle(element.category);
+  const { t } = useLanguage();
+  const name = t.elementNames[element.name] || element.name;
+  const categoryName = t.categories[element.category] || element.category;
+  const phaseName = t.phases[element.phase] || element.phase;
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -40,7 +45,7 @@ export function ElementDetail({ element, onClose }: Props) {
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
       role="dialog"
       aria-modal="true"
-      aria-label={`Details for ${element.name}`}
+      aria-label={`${name}`}
     >
       <div
         ref={panelRef}
@@ -53,7 +58,7 @@ export function ElementDetail({ element, onClose }: Props) {
             type="button"
             onClick={onClose}
             className="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 transition-colors"
-            aria-label="Close"
+            aria-label={t.close}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -65,9 +70,9 @@ export function ElementDetail({ element, onClose }: Props) {
               {element.symbol}
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{element.name}</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">{name}</h2>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Element {element.number} &middot; {element.category}
+                {t.element} {element.number} &middot; {categoryName}
               </p>
             </div>
           </div>
@@ -76,40 +81,40 @@ export function ElementDetail({ element, onClose }: Props) {
         {/* Properties */}
         <div className="p-6 space-y-4">
           <section>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">Basic Properties</h3>
-            <DetailRow label="Atomic Mass" value={formatAtomicMass(element.atomic_mass)} />
-            <DetailRow label="Phase" value={element.phase} />
-            <DetailRow label="Density" value={element.density ? `${element.density} g/cm³` : null} />
-            <DetailRow label="Block" value={element.block} />
-            <DetailRow label="Period" value={element.period} />
-            <DetailRow label="Group" value={element.group || null} />
-            <DetailRow label="Appearance" value={element.appearance} />
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">{t.basicProperties}</h3>
+            <DetailRow label={t.atomicMass} value={formatAtomicMass(element.atomic_mass)} />
+            <DetailRow label={t.phase} value={phaseName} />
+            <DetailRow label={t.density} value={element.density ? `${element.density} g/cm³` : null} />
+            <DetailRow label={t.block} value={element.block} />
+            <DetailRow label={t.period} value={element.period} />
+            <DetailRow label={t.group} value={element.group || null} />
+            <DetailRow label={t.appearance} value={element.appearance} />
           </section>
 
           <section>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">Thermal</h3>
-            <DetailRow label="Melting Point" value={element.melt ? `${element.melt} K` : null} />
-            <DetailRow label="Boiling Point" value={element.boil ? `${element.boil} K` : null} />
-            <DetailRow label="Molar Heat" value={element.molar_heat ? `${element.molar_heat} J/(mol·K)` : null} />
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">{t.thermal}</h3>
+            <DetailRow label={t.meltingPoint} value={element.melt ? `${element.melt} K` : null} />
+            <DetailRow label={t.boilingPoint} value={element.boil ? `${element.boil} K` : null} />
+            <DetailRow label={t.molarHeat} value={element.molar_heat ? `${element.molar_heat} J/(mol·K)` : null} />
           </section>
 
           <section>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">Electronic</h3>
-            <DetailRow label="Electron Configuration" value={element.electron_configuration_semantic} />
-            <DetailRow label="Electronegativity" value={element.electronegativity_pauling} />
-            <DetailRow label="Electron Affinity" value={element.electron_affinity ? `${element.electron_affinity} kJ/mol` : null} />
-            <DetailRow label="Shells" value={element.shells.join(', ')} />
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">{t.electronic}</h3>
+            <DetailRow label={t.electronConfiguration} value={element.electron_configuration_semantic} />
+            <DetailRow label={t.electronegativity} value={element.electronegativity_pauling} />
+            <DetailRow label={t.electronAffinity} value={element.electron_affinity ? `${element.electron_affinity} kJ/mol` : null} />
+            <DetailRow label={t.shells} value={element.shells.join(', ')} />
           </section>
 
           <section>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">Discovery</h3>
-            <DetailRow label="Discovered By" value={element.discovered_by} />
-            <DetailRow label="Named By" value={element.named_by} />
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">{t.discovery}</h3>
+            <DetailRow label={t.discoveredBy} value={element.discovered_by} />
+            <DetailRow label={t.namedBy} value={element.named_by} />
           </section>
 
           {element.summary && (
             <section>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">Summary</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2">{t.summary}</h3>
               <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                 {element.summary}
               </p>
@@ -123,7 +128,7 @@ export function ElementDetail({ element, onClose }: Props) {
               rel="noopener noreferrer"
               className="inline-block text-sm text-blue-600 dark:text-blue-400 hover:underline mt-2"
             >
-              Learn more on Wikipedia &rarr;
+              {t.learnMore} &rarr;
             </a>
           )}
         </div>

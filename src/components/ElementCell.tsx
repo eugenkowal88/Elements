@@ -1,5 +1,6 @@
 import type { Element } from '../types/element';
 import { getCategoryStyle, formatAtomicMass } from '../utils/elementHelpers';
+import { useLanguage } from '../i18n/LanguageContext';
 
 interface Props {
   element: Element;
@@ -10,6 +11,8 @@ interface Props {
 
 export function ElementCell({ element, dimmed, onClick, style }: Props) {
   const cat = getCategoryStyle(element.category);
+  const { t } = useLanguage();
+  const name = t.elementNames[element.name] || element.name;
 
   return (
     <button
@@ -25,7 +28,7 @@ export function ElementCell({ element, dimmed, onClick, style }: Props) {
       `}
       style={style}
       onClick={onClick}
-      aria-label={`${element.name}, element ${element.number}`}
+      aria-label={`${name}, ${t.element} ${element.number}`}
     >
       <span className="text-[0.5rem] leading-tight text-gray-600 dark:text-gray-400">
         {element.number}
@@ -34,7 +37,7 @@ export function ElementCell({ element, dimmed, onClick, style }: Props) {
         {element.symbol}
       </span>
       <span className="text-[0.4rem] leading-tight text-gray-700 dark:text-gray-300 truncate w-full text-center">
-        {element.name}
+        {name}
       </span>
       <span className="text-[0.4rem] leading-tight text-gray-500 dark:text-gray-400">
         {formatAtomicMass(element.atomic_mass)}

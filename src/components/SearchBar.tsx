@@ -1,9 +1,13 @@
+import { useLanguage } from '../i18n/LanguageContext';
+
 interface Props {
   value: string;
   onChange: (value: string) => void;
 }
 
 export function SearchBar({ value, onChange }: Props) {
+  const { t } = useLanguage();
+
   return (
     <div className="relative max-w-md mx-auto w-full">
       <svg
@@ -18,7 +22,7 @@ export function SearchBar({ value, onChange }: Props) {
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Search by name, symbol, or number..."
+        placeholder={t.searchPlaceholder}
         className="w-full pl-10 pr-10 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
       />
       {value && (
@@ -26,7 +30,7 @@ export function SearchBar({ value, onChange }: Props) {
           type="button"
           onClick={() => onChange('')}
           className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
-          aria-label="Clear search"
+          aria-label={t.clearSearch}
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

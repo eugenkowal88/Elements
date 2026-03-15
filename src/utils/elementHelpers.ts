@@ -8,14 +8,15 @@ export function getCategoryStyle(category: string) {
   return CATEGORY_COLORS[normalized] || CATEGORY_COLORS['unknown'];
 }
 
-export function searchElements(elements: Element[], query: string): Element[] {
+export function searchElements(elements: Element[], query: string, translatedNames?: Record<string, string>): Element[] {
   if (!query.trim()) return elements;
   const q = query.toLowerCase().trim();
   return elements.filter(
     (el) =>
       el.name.toLowerCase().includes(q) ||
       el.symbol.toLowerCase().includes(q) ||
-      el.number.toString() === q
+      el.number.toString() === q ||
+      (translatedNames && (translatedNames[el.name] || '').toLowerCase().includes(q))
   );
 }
 
